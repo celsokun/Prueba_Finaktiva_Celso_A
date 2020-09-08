@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="prueba_finaktiva_celsoModelStoreContainer" CdmEntityContainer="prueba_finaktiva_celsoEntities">
+    <EntitySetMapping Name="municipio">
+      <EntityTypeMapping TypeName="prueba_finaktiva_celsoModel.municipio">
+        <MappingFragment StoreEntitySet="municipio">
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="region">
+      <EntityTypeMapping TypeName="prueba_finaktiva_celsoModel.region">
+        <MappingFragment StoreEntitySet="region">
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="municipio_region">
+      <EntityTypeMapping TypeName="prueba_finaktiva_celsoModel.municipio_region">
+        <MappingFragment StoreEntitySet="municipio_region">
+          <ScalarProperty Name="codigo_municipio" ColumnName="codigo_municipio" />
+          <ScalarProperty Name="codigo_region" ColumnName="codigo_region" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

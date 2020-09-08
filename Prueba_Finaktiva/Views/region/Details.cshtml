@@ -1,0 +1,48 @@
+﻿@model Prueba_Finaktiva.Models.region
+@using Prueba_Finaktiva.Models;
+
+@{
+    ViewBag.Title = "Details";
+    List<municipio> lstMunicipios = new List<municipio>();
+    lstMunicipios = ViewBag.lstMunicipios;
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>region</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nombre
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+    </dl>
+    <table class="table">
+        <tr>
+            <th>
+                Municipios
+            </th>
+        </tr>
+
+        @foreach (municipio item in lstMunicipios)
+        {
+            <tr>
+                <td>
+                    @item.nombre
+                </td>
+            </tr>
+        }
+
+    </table>
+
+
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.codigo }) |
+    @Html.ActionLink("Lista", "Index")
+</p>

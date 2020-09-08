@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="prueba_finaktiva_celsoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="municipio">
+    <Key>
+      <PropertyRef Name="codigo" />
+    </Key>
+    <Property Name="codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="estado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="municipio_region">
+    <Key>
+      <PropertyRef Name="codigo_region" />
+      <PropertyRef Name="codigo_municipio" />
+    </Key>
+    <Property Name="codigo_region" Type="int" Nullable="false" />
+    <Property Name="codigo_municipio" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="region">
+    <Key>
+      <PropertyRef Name="codigo" />
+    </Key>
+    <Property Name="codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="prueba_finaktiva_celsoModelStoreContainer">
+    <EntitySet Name="municipio" EntityType="Self.municipio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="municipio_region" EntityType="Self.municipio_region" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="region" EntityType="Self.region" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

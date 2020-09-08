@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="prueba_finaktiva_celsoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="municipio">
+          <Key>
+            <PropertyRef Name="codigo" />
+          </Key>
+          <Property Name="codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="estado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="municipio_region">
+          <Key>
+            <PropertyRef Name="codigo_region" />
+            <PropertyRef Name="codigo_municipio" />
+          </Key>
+          <Property Name="codigo_region" Type="int" Nullable="false" />
+          <Property Name="codigo_municipio" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="region">
+          <Key>
+            <PropertyRef Name="codigo" />
+          </Key>
+          <Property Name="codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="prueba_finaktiva_celsoModelStoreContainer">
+          <EntitySet Name="municipio" EntityType="Self.municipio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="municipio_region" EntityType="Self.municipio_region" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="region" EntityType="Self.region" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="prueba_finaktiva_celsoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="prueba_finaktiva_celsoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="municipio" EntityType="prueba_finaktiva_celsoModel.municipio" />
+          <EntitySet Name="region" EntityType="prueba_finaktiva_celsoModel.region" />
+          <EntitySet Name="municipio_region" EntityType="prueba_finaktiva_celsoModel.municipio_region" />
+        </EntityContainer>
+        <EntityType Name="municipio">
+          <Key>
+            <PropertyRef Name="codigo" />
+          </Key>
+          <Property Name="codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="region">
+          <Key>
+            <PropertyRef Name="codigo" />
+          </Key>
+          <Property Name="codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="municipio_region">
+          <Key>
+            <PropertyRef Name="codigo_region" />
+            <PropertyRef Name="codigo_municipio" />
+          </Key>
+          <Property Name="codigo_region" Type="Int32" Nullable="false" />
+          <Property Name="codigo_municipio" Type="Int32" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="prueba_finaktiva_celsoModelStoreContainer" CdmEntityContainer="prueba_finaktiva_celsoEntities">
+          <EntitySetMapping Name="municipio">
+            <EntityTypeMapping TypeName="prueba_finaktiva_celsoModel.municipio">
+              <MappingFragment StoreEntitySet="municipio">
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="region">
+            <EntityTypeMapping TypeName="prueba_finaktiva_celsoModel.region">
+              <MappingFragment StoreEntitySet="region">
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="municipio_region">
+            <EntityTypeMapping TypeName="prueba_finaktiva_celsoModel.municipio_region">
+              <MappingFragment StoreEntitySet="municipio_region">
+                <ScalarProperty Name="codigo_municipio" ColumnName="codigo_municipio" />
+                <ScalarProperty Name="codigo_region" ColumnName="codigo_region" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

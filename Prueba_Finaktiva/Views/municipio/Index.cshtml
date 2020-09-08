@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Prueba_Finaktiva.Models.municipio>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Lista de Municipios</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+           Nombre
+        </th>
+        <th>
+           Activo
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.estado)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.codigo }) |
+            @Html.ActionLink("Detalle", "Details", new { id=item.codigo }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.codigo })
+        </td>
+    </tr>
+}
+
+</table>
